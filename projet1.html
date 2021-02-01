@@ -5,12 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Info-trafic TAN temps réel</title>
+    <style>
+        td
+        {
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
 
 <div id="main">
-
-    <pre>{{ records }}</pre>
+    <table>
+        <thead>
+            <tr v-for="record in item">
+                <th>{{record.datasetid}}</th>
+                <th>{{record.datasetid}}</th>
+                <th>{{record.datasetid}}</th>
+                <th>{{record.datasetid}}</th>
+                <th>{{record.datasetid}}</th>
+                <th>{{record.datasetid}}</th>
+            </tr>
+        </thead>
+    </table>
+<!--    <pre>{{ records }}</pre>-->
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.5/vue.min.js"></script>
@@ -19,51 +36,13 @@
     var demo = new Vue({
         el: '#main',
         data: {
-            records: []
+            item: []
         },
         beforeCreate() {
             axios
                 .get('https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_info-trafic-tan-temps-reel&q=')
                 .then(res => {
-                     var nbre_lignes = res.data.nhits
-                     if(nbre_lignes>0){
-                         document.write("<table>");
-                         document.write("<thead>");
-                         document.write("<tr>");
-                         document.write("<th scope=\"col\">Intitulé</th>");
-                         document.write("<th scope=\"col\">Résumé</th>");
-                         document.write("<th scope=\"col\">texte vocal</th>");
-                         document.write("<th scope=\"col\">Date de début</th>");
-                         document.write("<th scope=\"col\">Heure de début</th>");
-                         document.write("<th scope=\"col\">Date de fin</th>");
-                         document.write("<th scope=\"col\">Heure de fin</th>");
-                         document.write("<th scope=\"col\">Perturbation terminée</th>");
-                         document.write("<th scope=\"col\">Tronçons concernés</th>");
-                         document.write("<th scope=\"col\">Liste des arrêts</th>");
-                         document.write("</tr>");
-                         document.write("</thead>");
-
-                         for (i=0;i<=nbre_lignes; i++)
-                         {
-                             document.write("<tr>");
-                             document.write("<td>"+res.data.records[i].fields.intitule+"</td>");
-                             document.write("<td>"+res.data.records[i].fields.resume+"</td>");
-                             document.write("<td>"+res.data.records[i].fields.texte_vocal+"</td>");
-                             document.write("<td>"+res.data.records[i].fields.date_debut+"</td>");
-                             document.write("<td>"+res.data.records[i].fields.heure_debut+"</td>");
-                             document.write("<td>"+res.data.records[i].fields.date_fin+"</td>");
-                             document.write("<td>"+res.data.records[i].fields.heure_fin+"</td>");
-                             document.write("<td>"+res.data.records[i].fields.perturbation_terminee+"</td>");
-                             document.write("<td>"+res.data.records[i].fields.troncons+"</td>");
-                             document.write("<td>"+res.data.records[i].fields.listes_arrets+"</td>");
-                             document.write("</tr>");
-
-                             document.write("<tr>");
-                             document.write("<td> </td>");
-                             document.write("<tr>");
-                         }
-                         document.write("</table>");
-                     }
+                    this.item = res.data.records
                 })
         }
     });
