@@ -33,6 +33,8 @@
                          document.write("<td>texte vocal</td>");
                          document.write("<td>Date de début</td>");
                          document.write("<td>Heure de début</td>");
+                         document.write("<td>Date de fin</td>");
+                         document.write("<td>Heure de fin</td>");
                          document.write("<td>Perturbation terminée</td>");
                          document.write("<td>Tronçons concernés</td>");
                          document.write("<td>Liste des arrêts</td>");
@@ -45,6 +47,8 @@
                              document.write("<td>"+res.data.records[i].fields.texte_vocal+"</td>");
                              document.write("<td>"+res.data.records[i].fields.date_debut+"</td>");
                              document.write("<td>"+res.data.records[i].fields.heure_debut+"</td>");
+                             document.write("<td>"+res.data.records[i].fields.date_fin+"</td>");
+                             document.write("<td>"+res.data.records[i].fields.heure_fin+"</td>");
                              document.write("<td>"+res.data.records[i].fields.perturbation_terminee+"</td>");
                              document.write("<td>"+res.data.records[i].fields.troncons+"</td>");
                              document.write("<td>"+res.data.records[i].fields.listes_arrets+"</td>");
