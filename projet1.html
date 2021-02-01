@@ -5,17 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Info-trafic TAN temps réel</title>
-
 </head>
 <body>
 
 <div id="main">
     <pre>{{ records }}</pre>
-<!--    <iframe-->
-<!--            src="https://data.nantesmetropole.fr/explore/embed/dataset/244400404_info-trafic-tan-temps-reel/table/"-->
-<!--            width="1000" height="500" frameBorder="0">-->
-
-<!--    </iframe>-->
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.5/vue.min.js"></script>
@@ -30,8 +24,18 @@
             axios
                 .get('https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_info-trafic-tan-temps-reel&q=')
                 .then(res => {
-                    this.records = res.data.results.item(1)
-                    console.error(this.records)
+                    var nbre_lignes = res.nhits
+                    if (nbre_lignes >50 ) {ventier =50 ; alert("nombre de lignes limitée à 50"); }
+                    document.write("<table>");
+                    for (i=0;i<=nbre_lignes; i++)
+                    {
+                        document.write("<tr>");
+                        document.write("<td>col 1 </td>");
+                        document.write("<td>col 2 </td>");
+                        document.write("<td>col 3 </td>");
+                        document.write("</tr>");
+                    }
+                    document.write("</table>");
                 })
         }
     });
