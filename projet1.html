@@ -24,7 +24,7 @@
             axios
                 .get('https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_info-trafic-tan-temps-reel&q=')
                 .then(res => {
-                     var nbre_lignes = 1
+                     var nbre_lignes = res.data.nhits
                      if(nbre_lignes>0){
                          document.write("<table>");
                          document.write("<tr>");
@@ -49,6 +49,10 @@
                              document.write("<td>"+res.data.records[i].fields.troncons+"</td>");
                              document.write("<td>"+res.data.records[i].fields.listes_arrets+"</td>");
                              document.write("</tr>");
+
+                             document.write("<tr>");
+                             document.write("<td> </td>");
+                             document.write("<tr>");
                          }
                          document.write("</table>");
                      }
