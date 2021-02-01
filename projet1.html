@@ -24,18 +24,34 @@
             axios
                 .get('https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_info-trafic-tan-temps-reel&q=')
                 .then(res => {
-                    var nbre_lignes = res.nhits
-                    if (nbre_lignes >50 ) {ventier =50 ; alert("nombre de lignes limitée à 50"); }
-                    document.write("<table>");
-                    for (i=0;i<=nbre_lignes; i++)
-                    {
-                        document.write("<tr>");
-                        document.write("<td>col 1 </td>");
-                        document.write("<td>col 2 </td>");
-                        document.write("<td>col 3 </td>");
-                        document.write("</tr>");
-                    }
-                    document.write("</table>");
+                     var nbre_lignes = 1
+                     if(nbre_lignes>0){
+                         document.write("<table>");
+                         document.write("<tr>");
+                         document.write("<td>Intitulé</td>");
+                         document.write("<td>Résumé</td>");
+                         document.write("<td>texte vocal</td>");
+                         document.write("<td>Date de début</td>");
+                         document.write("<td>Heure de début</td>");
+                         document.write("<td>Perturbation terminée</td>");
+                         document.write("<td>Tronçons concernés</td>");
+                         document.write("<td>Liste des arrêts</td>");
+                         document.write("</tr>");
+                         for (i=0;i<=nbre_lignes; i++)
+                         {
+                             document.write("<tr>");
+                             document.write("<td>"+res.data.records[i].fields.intitule+"</td>");
+                             document.write("<td>"+res.data.records[i].fields.resume+"</td>");
+                             document.write("<td>"+res.data.records[i].fields.texte_vocal+"</td>");
+                             document.write("<td>"+res.data.records[i].fields.date_debut+"</td>");
+                             document.write("<td>"+res.data.records[i].fields.heure_debut+"</td>");
+                             document.write("<td>"+res.data.records[i].fields.perturbation_terminee+"</td>");
+                             document.write("<td>"+res.data.records[i].fields.troncons+"</td>");
+                             document.write("<td>"+res.data.records[i].fields.listes_arrets+"</td>");
+                             document.write("</tr>");
+                         }
+                         document.write("</table>");
+                     }
                 })
         }
     });
