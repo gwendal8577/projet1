@@ -6,9 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Info-trafic TAN temps réel</title>
     <style>
-        td
-        {
-            width: 200px;
+        table {
+            border-collapse:collapse;
+        }
+        .thLarge {
+            width:500px;
+            max-width:500px;
+            min-width:500px;
+        }
+        th {
+            width:auto;
+            min-width:auto;
+        }
+        td {
+            width:auto;
+            min-width:auto;
+            padding:5px 0; border:solid 1px #808080;
         }
     </style>
 </head>
@@ -17,15 +30,35 @@
 <div id="main">
     <table>
         <thead>
-            <tr v-for="record in item">
-                <th>{{record.datasetid}}</th>
-                <th>{{record.datasetid}}</th>
-                <th>{{record.datasetid}}</th>
-                <th>{{record.datasetid}}</th>
-                <th>{{record.datasetid}}</th>
-                <th>{{record.datasetid}}</th>
+            <tr>
+                <th class="column" >intitule</th>
+                <th class="column">résumé</th>
+                <th class="column">text vocal</th>
+                <th class="column">date début</th>
+                <th class="column">heure début</th>
+                <th class="column">date fin</th>
+                <th class="column">heure fin</th>
+                <th class="column">perturbation terminé</th>
+                <th class="column">troncon</th>
+                <th class="column">liste des arret</th>
             </tr>
         </thead>
+
+        <tbody>
+            <tr v-for="record in item">
+                <td>{{record.fields.intitule}}</td>
+                <td class="thLarge">{{record.fields.resume}}</td>
+                <td>{{record.fields.texte_vocal}}</td>
+                <td>{{record.fields.date_debut}}</td>
+                <td>{{record.fields.heure_debut}}</td>
+                <td>{{record.fields.date_fin}}</td>
+                <td>{{record.fields.heure_fin}}</td>
+                <td>{{record.fields.perturbation_terminee}}</td>
+                <td class="thLarge">{{record.fields.troncons}}</td>
+                <td>{{record.fields.listes_arrets}}</td>
+            </tr>
+        </tbody>
+
     </table>
 <!--    <pre>{{ records }}</pre>-->
 </div>
