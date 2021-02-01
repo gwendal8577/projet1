@@ -9,6 +9,7 @@
 <body>
 
 <div id="main">
+
     <pre>{{ records }}</pre>
 </div>
 
@@ -27,18 +28,21 @@
                      var nbre_lignes = res.data.nhits
                      if(nbre_lignes>0){
                          document.write("<table>");
+                         document.write("<thead>");
                          document.write("<tr>");
-                         document.write("<td>Intitulé</td>");
-                         document.write("<td>Résumé</td>");
-                         document.write("<td>texte vocal</td>");
-                         document.write("<td>Date de début</td>");
-                         document.write("<td>Heure de début</td>");
-                         document.write("<td>Date de fin</td>");
-                         document.write("<td>Heure de fin</td>");
-                         document.write("<td>Perturbation terminée</td>");
-                         document.write("<td>Tronçons concernés</td>");
-                         document.write("<td>Liste des arrêts</td>");
+                         document.write("<th scope=\"col\">Intitulé</th>");
+                         document.write("<th scope=\"col\">Résumé</th>");
+                         document.write("<th scope=\"col\">texte vocal</th>");
+                         document.write("<th scope=\"col\">Date de début</th>");
+                         document.write("<th scope=\"col\">Heure de début</th>");
+                         document.write("<th scope=\"col\">Date de fin</th>");
+                         document.write("<th scope=\"col\">Heure de fin</th>");
+                         document.write("<th scope=\"col\">Perturbation terminée</th>");
+                         document.write("<th scope=\"col\">Tronçons concernés</th>");
+                         document.write("<th scope=\"col\">Liste des arrêts</th>");
                          document.write("</tr>");
+                         document.write("</thead>");
+
                          for (i=0;i<=nbre_lignes; i++)
                          {
                              document.write("<tr>");
