@@ -15,13 +15,19 @@
             min-width:500px;
         }
         th {
-            width:auto;
-            min-width:auto;
+            width:150px;
+            max-width:150px;
+            min-width:150px;
         }
         td {
+            width:150px;
+            max-width:150px;
+            min-width:150px;
+            padding:5px 0; border:solid 1px #808080;
+        }
+        .thAuto{
             width:auto;
             min-width:auto;
-            padding:5px 0; border:solid 1px #808080;
         }
     </style>
 </head>
@@ -55,7 +61,7 @@
                 <td>{{record.fields.heure_fin}}</td>
                 <td>{{record.fields.perturbation_terminee}}</td>
                 <td class="thLarge">{{record.fields.troncons}}</td>
-                <td>{{record.fields.listes_arrets}}</td>
+                <td class="thAuto">{{record.fields.listes_arrets}}</td>
             </tr>
         </tbody>
 
